@@ -63,10 +63,12 @@ int gz_decompress( const char *file_name, char *buff, uint32_t buff_len, int *le
             return -1;
         }
 
+        buff_len=102;
         //*len = gzread( fp, buff, 10 );
         *len = gzread( fp, buff, buff_len );
         buff[*len] = '\0';
-        printf("if endof the buff ? %s \n",gzeof(fp)==1 ? "yes" : "no" );
+        printf("if endof the buff ? %s \n",((*len < buff_len)||(gzeof(fp)==1)) ? "yes" : "no" );
+        printf("buff_len=%d,len=%d\n",buff_len,*len);
 
         gzclose(fp);
     }
