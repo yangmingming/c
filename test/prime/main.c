@@ -10,7 +10,8 @@ int main(int argc,char *argv[])
     for( i = 0; i < NUM; i++ )
     {
         prime = FindNearestPrime(i);
-        if( prime < i )
+        //if( prime < i )
+        if( 1 )
         {
             printf("%d,%d\n",i,prime);
         }
